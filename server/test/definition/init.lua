@@ -1,5 +1,6 @@
-local core = require 'core'
-local parser  = require 'parser'
+do return end
+--local core = require 'core'
+--local parser  = require 'parser'
 
 rawset(_G, 'TEST', true)
 
