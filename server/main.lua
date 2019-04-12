@@ -1,7 +1,6 @@
 local fs = require 'bee.filesystem'
 
-ROOT = fs.current_path()
-LANG = LANG or 'en-US'
+local ROOT = fs.current_path()
 
 package.path = (ROOT / 'src' / '?.lua'):string()
      .. ';' .. (ROOT / 'src' / '?' / 'init.lua'):string()
@@ -10,10 +9,9 @@ package.path = (ROOT / 'src' / '?.lua'):string()
 collectgarbage("setpause", 100)
 collectgarbage("setstepmul", 1000)
 
-log = require 'log'
+local log = require 'log'
 log.init(ROOT, ROOT / 'log' / 'service.log')
 log.info('Lua Lsp startup, root: ', ROOT)
-ac = {}
 
 local function tryDebugger()
      local dbg = require 'debugger'
@@ -22,7 +20,7 @@ local function tryDebugger()
      log.info('Debugger startup, listen port: 11411')
 end
 
---pcall(tryDebugger)
+pcall(tryDebugger)
 
 require 'utility'
 require 'global_protect'
